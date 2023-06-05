@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Merge sort");
+
     }
     public static boolean isSorted(int[] array) {
         for (int i = 0; i < array.length; i++) {
@@ -15,7 +15,31 @@ public class Main {
 
 
     public static int[] merge(int[] left, int[] right) {
-        return null;
+        int[] array = new int[left.length + right.length];
+        int arrayIndex = 0;
+        int leftIndex = 0;
+        int rightIndex = 0;
+        while (arrayIndex < array.length && rightIndex <right.length && leftIndex < left.length) {
+            if(left[leftIndex] < right[rightIndex]) {
+                array[arrayIndex] = left[leftIndex];
+                leftIndex++;
+            } else {
+                array[arrayIndex] = right[rightIndex];
+                rightIndex++;
+                arrayIndex++;
+            }
+        }
+        while (rightIndex <right.length){
+            array[arrayIndex] = right[rightIndex];
+            rightIndex++;
+            arrayIndex++;
+        }
+        while (leftIndex < left.length) {
+            array[arrayIndex] = left[leftIndex];
+            leftIndex++;
+            arrayIndex++;
+        }
+        return array;
     }
 
     public static int[] mergeSort(int[] array) {
