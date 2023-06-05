@@ -1,4 +1,6 @@
-    public class Main {
+import java.util.Arrays;
+
+public class Main {
     public static void main(String[] args) {
         System.out.println("Merge sort");
     }
@@ -17,6 +19,14 @@
     }
 
     public static int[] mergeSort(int[] array) {
-        return null;
+        if(isSorted(array)) {
+            return array;
+        }
+        int[] left = Arrays.copyOfRange(array,0,array.length / 2);
+        int[] right = Arrays.copyOfRange(array,array.length / 2, array.length);
+        left = mergeSort(left);
+        right = mergeSort(right);
+        int[] merged = merge(left,right);
+        return merged;
     }
 }
