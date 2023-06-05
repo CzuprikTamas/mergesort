@@ -2,7 +2,9 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-
+        int[] array = {1,234,453,523,54,-21,23,123,231,1,-2};
+        array = mergeSort(array);
+        System.out.println(Arrays.toString(array));
     }
     public static boolean isSorted(int[] array) {
         for (int i = 0; i < array.length; i++) {
